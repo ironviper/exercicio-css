@@ -104,24 +104,26 @@ section h2 {
     background-color: #ff9f1a;
 }
 
+/*#region DROPDOWN MENU*/
 .dropdown {
-    position: relative;
-    display: inline-block;
-    &::before {
-        content: "Outras notícias ►";
+    position: relative; /* Sets the element that will trigger the menu to open as "position: relative", so the child which is the dropdown menu it self can be set to "position: absolute" and will appear right below the element that triggered it, as "position: absolute" positions the element with reference to the closest parent with "position: aboslute. */
+    display: inline-block; /* Sets the behavior of the element with the elements outside it as "inline", and the behavior of the elements inside it as "block". */
+    &::before { /* Same as creating another seletion block with ".dropdown::before" */
+        content: "Outras notícias ►"; /* Sets the text of the element that will trigger the dropwdown menu. Set this way so it can be changed when hovered. */
     }
 }
 .dropdown:hover::before {
-    content: "Outras notícias ▼";
+    content: "Outras notícias ▼"; /* Changes the text of the element which triggers the dropdown menu, when hovered. */
 }
-.dropdown-content {
-    display: none;
-    position: absolute;
+.dropdown-content { /* Sets the properties for the dropdown menu it self. */
+    display: none; /* Display none so it is not showing by default. */
+    position: absolute; /* Used to make it positioned according to the closest parent with "position: relative" so it will appear right below the element that triggered it. */
     background-color: #000000;
     width: fit-content;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
-    z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25); /* Drop shadow effect. */
+    z-index: 1; /* Used to ensure that the dropdown menu will appear above the to other elements. */
 }
-.dropdown:hover .dropdown-content {
-    display: block;
+.dropdown:hover .dropdown-content { /* When the element reponsible for triggering the dropdown menu gets hovered. */
+    display: block; /* Make the dropdown menu visible. Can be any values other than "none", depends on the visuals desired, in this case "block" is fine. */
 }
+/*#endregion*/
