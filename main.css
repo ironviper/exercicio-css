@@ -112,13 +112,12 @@ section h2 {
         content: "Outras notícias ►"; /* Sets the text of the element that will trigger the dropwdown menu. Set this way so it can be changed when hovered. */
     }
 }
-.dropdown:hover::before {
+.dropdown:hover::before{
     content: "Outras notícias ▼"; /* Changes the text of the element which triggers the dropdown menu, when hovered. */
 }
 .dropdown-content { /* Sets the properties for the dropdown menu it self. */
     display: none; /* Display none so it is not showing by default. */
     position: absolute; /* Used to make it positioned according to the closest parent with "position: relative" so it will appear right below the element that triggered it. */
-    background-color: #000000;
     width: fit-content;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25); /* Drop shadow effect. */
     z-index: 1; /* Used to ensure that the dropdown menu will appear above the to other elements. */
@@ -126,4 +125,30 @@ section h2 {
 .dropdown:hover .dropdown-content { /* When the element reponsible for triggering the dropdown menu gets hovered. */
     display: block; /* Make the dropdown menu visible. Can be any values other than "none", depends on the visuals desired, in this case "block" is fine. */
 }
+
+
+.dropdown-content li {
+    display: block;
+    margin: 0;
+}
+
+.dropdown-content li a { /* Selection block for the links(<a>) inside the dropdown menu */
+    display: block;
+    padding: 1em;
+
+    background-color: #2F3640; /* Background color set in case the linear-gradient is not supported by the browser. */
+    background-image: linear-gradient(90deg, #2F3640 0%, #525A65 50%, #CBD3E0 100%); /* Sets the background of the itens from the dropdown menu to a gradient. */
+
+    background-size: 200% 100%; /* Sets the background width to double the element's width, so the gradient background is larger than the element. This allows it to be moved using the 'background-position' property with '%' units. */
+
+    background-position: 0% 0%; /* Ensures that the background will be positioned aligned to the left side of the element, and not centralized.  */
+
+    transition: background-position 0.3s ease-in-out; /* Sets transition settings, the transition is property is added in this block and not in the :hover block because in this block the transition will "play" forward when the mouse starts hovering and backward when the mouse stops hovering, with "easy-in-out". If the transition were added to the :hover block it would play just forward when the hover starts and would abruptly return to its original values when the mouse stopped hovering. */
+}
+
+.dropdown-content li a:hover {
+    background-position: 50% 0%; /* This is final position of the transition. Sets the background position at the center of the element. */
+}
+
+
 /*#endregion*/
