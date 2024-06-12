@@ -50,6 +50,10 @@ header li a {
 
 section {
     padding: 16px 0;
+    & > .container > .section-title-div {
+        display: flex;
+        align-items: center;
+    }
 }
 
 section h2,
@@ -59,6 +63,13 @@ section h2,
 
 section h2 {
     font-size: 32px;
+    flex: 1;
+    & ~ a, ~ a:visited {
+        justify-content: flex-end;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-weight: 600;
+    }
 }
 
 .articles article h3 {
@@ -102,6 +113,26 @@ section h2 {
 
 #economy .articles article a {
     background-color: #ff9f1a;
+}
+
+#technology {
+    background-color: #2062c462;
+}
+
+#entertainment {
+    background-color: #94909050;
+}
+
+#entertainment .articles article a {
+    background-color: unset;
+    color: black;
+    background-image: linear-gradient(90deg, rgba(255,0,0,0.5) 0%, rgba(255,0,0,0.5) 33.3%, rgba(0,255,0,0.5) 33.3%, rgba(0,255,0,0.5) 66.6%, rgba(0,0,255,0.25) 66.6%, rgba(0,0,255,0.5) 100%);
+}
+
+#entertainment .articles article a:hover {
+    background-color: unset;
+    color: white;
+    background-image: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(0,255,0,1) 50%, rgba(0,0,255,1) 100%);
 }
 
 /*#region DROPDOWN MENU*/
